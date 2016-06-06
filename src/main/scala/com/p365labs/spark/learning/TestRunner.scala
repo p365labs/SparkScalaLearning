@@ -1,6 +1,7 @@
 package com.p365labs.spark.learning
 
 
+import com.p365labs.spark.learning.actions._
 import com.p365labs.spark.learning.tranformations._
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -21,7 +22,7 @@ object TestRunner {
 
 
       /**
-        * instantiate Examples
+        * instantiate Examples for Transformation
         */
       val filter = new Filter();
       val union = new Union();
@@ -31,6 +32,20 @@ object TestRunner {
       val intersection = new Intersection();
       val subtract = new Subtract();
       val cartesian = new Cartesian();
+      val collect = new Collect();
+      val count = new Count();
+      val countByValue = new CountByValue();
+      val take = new Take();
+      val takeOrdered = new TakeOrdered();
+      val takeSample = new TakeSample();
+      val top = new Top();
+
+
+    /**
+      * instantiate Examples for Transformation
+      */
+      val reduce = new Reduce();
+
       /**
         * run Examples
         */
@@ -61,6 +76,30 @@ object TestRunner {
 
         //Cartesian
         cartesian.testCartesian(sc);
+
+        //Reduce
+        reduce.testReduce(sc);
+
+        //Collect
+        collect.testCollect(sc);
+
+        //Count
+        count.testCount(sc);
+
+        //CountByValye
+        countByValue.testCountByValue(sc);
+
+        //Take
+        take.testTake(sc);
+
+        //TakeOrdered
+        takeOrdered.testTakeOrdered(sc);
+
+        //TakeSample
+        takeSample.testTakeSample(sc);
+
+        //Top
+        top.testTop(sc);
       } else {
         println("********* You need to pass paramenter to this command in order to work properly");
       }
