@@ -11,6 +11,8 @@ class Count {
 
     val result = elements.count();
 
+    println("");
+    println("************************ ACTION COUNT");
     println("Actions : Count = " + result);
   }
 }

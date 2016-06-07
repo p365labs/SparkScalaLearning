@@ -11,6 +11,8 @@ class Reduce {
 
     val result = elements.reduce((x, y) => x + y);
 
+    println("");
+    println("************************ ACTION REDUCE");
     println("The reduce result is : " + result);
   }
 }

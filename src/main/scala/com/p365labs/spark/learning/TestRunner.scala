@@ -3,6 +3,8 @@ package com.p365labs.spark.learning
 
 import com.p365labs.spark.learning.actions._
 import com.p365labs.spark.learning.tranformations._
+import com.p365labs.spark.learning.keyvaluepairtransofrmations.{Map => PairMap, _}
+import com.p365labs.spark.learning.rddpairtransformations._
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -39,6 +41,22 @@ object TestRunner {
       val takeOrdered = new TakeOrdered();
       val takeSample = new TakeSample();
       val top = new Top();
+      val mapPair = new PairMap();
+      val reduceByKey = new ReduceByKey();
+      val groupByKey = new GroupByKey();
+      val mapValues = new MapValues();
+      val flatMapValues = new FlatMapValues();
+      val keyPairs = new Keys();
+      val valuePairs = new Values();
+      val sortByKey = new SortByKey();
+
+      //rddpair transformation
+      val subtractByKey = new SubtractByKey();
+      val join = new Join();
+      val rightOuterJoin = new RightOuterJoin();
+      val leftOuterJoin = new LeftOuterJoin();
+      val coGroup = new CoGroup();
+
 
 
     /**
@@ -77,6 +95,12 @@ object TestRunner {
         //Cartesian
         cartesian.testCartesian(sc);
 
+        println("");
+        println("");
+        println("");
+        println("######################## ACTIONS ########################");
+        println("");
+
         //Reduce
         reduce.testReduce(sc);
 
@@ -100,6 +124,35 @@ object TestRunner {
 
         //Top
         top.testTop(sc);
+
+        println("");
+        println("");
+        println("");
+        println("######################## PAIRS TRANSFORMATIOSN ########################");
+        println("");
+
+        mapPair.testMapRDDPairs(sc);
+        reduceByKey.testReduceByKey(sc);
+        groupByKey.testGroupByKey(sc);
+        mapValues.testMapValues(sc);
+        flatMapValues.testFlatMapValues(sc);
+        keyPairs.testKeys(sc);
+        valuePairs.testValues(sc);
+        sortByKey.testSortByKey(sc);
+
+        println("");
+        println("");
+        println("");
+        println("######################## RDD PAIRS TRANSOFRMATION ########################");
+        println("");
+
+        subtractByKey.testSubtract(sc);
+        join.testJoin(sc);
+        join.testJoinSecond(sc);
+        rightOuterJoin.testRightOuterJoin(sc);
+        leftOuterJoin.testLeftOuterJoin(sc);
+        coGroup.testCoGroup(sc);
+
       } else {
         println("********* You need to pass paramenter to this command in order to work properly");
       }

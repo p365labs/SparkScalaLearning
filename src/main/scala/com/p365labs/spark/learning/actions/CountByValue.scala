@@ -10,7 +10,9 @@ class CountByValue {
     val elements = sc.parallelize(List(1,2,3,3));
 
     val result = elements.countByValue();
-    println(result.getClass());
+
+    println("");
+    println("************************ ACTION COUNTBYVALUE");
     println("Actions : countByValue = " + result);
   }
 }

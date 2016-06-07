@@ -11,6 +11,9 @@ class Collect {
     val elements = sc.parallelize(List(1, 2, 3, 3));
 
     val result = elements.collect();
+
+    println("");
+    println("************************ ACTION COLLECT");
     println("Actions : Collect = " + result.mkString(","));
   }
 }
