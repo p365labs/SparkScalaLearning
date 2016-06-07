@@ -16,7 +16,7 @@ object TestRunner {
       val conf = new SparkConf().setAppName("Filter");
       val sc = new SparkContext(conf);
 
-      val inputFile = args(0) + "/nginx.access.log";
+      val inputFile = args(0) + "/nginx.access.log.gz";
       val input = sc.textFile(inputFile);
       val integersFile = args(2);
 
@@ -35,6 +35,7 @@ object TestRunner {
       val intersection = new Intersection();
       val subtract = new Subtract();
       val cartesian = new Cartesian();
+
       val collect = new Collect();
       val count = new Count();
       val countByValue = new CountByValue();
