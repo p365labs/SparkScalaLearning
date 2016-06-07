@@ -4,6 +4,7 @@ package com.p365labs.spark.learning
 import com.p365labs.spark.learning.actions._
 import com.p365labs.spark.learning.tranformations._
 import com.p365labs.spark.learning.keyvaluepairtransofrmations.{Map => PairMap, _}
+import com.p365labs.spark.learning.rddpairactions.{CollectAsMap, CountByKey, Lookup}
 import com.p365labs.spark.learning.rddpairtransformations._
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -56,6 +57,11 @@ object TestRunner {
       val rightOuterJoin = new RightOuterJoin();
       val leftOuterJoin = new LeftOuterJoin();
       val coGroup = new CoGroup();
+
+      //rddpair actions
+      val collectAsMap = new CollectAsMap();
+      val countByKey = new CountByKey();
+      val lookup = new Lookup();
 
 
 
@@ -152,6 +158,16 @@ object TestRunner {
         rightOuterJoin.testRightOuterJoin(sc);
         leftOuterJoin.testLeftOuterJoin(sc);
         coGroup.testCoGroup(sc);
+
+        println("");
+        println("");
+        println("");
+        println("######################## RDD PAIRS ACTIONS ########################");
+        println("");
+
+        countByKey.testCountByKey(sc);
+        collectAsMap.testCollectAsMap(sc);
+        lookup.testLookUp(sc);
 
       } else {
         println("********* You need to pass paramenter to this command in order to work properly");
