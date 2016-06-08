@@ -6,6 +6,10 @@ import org.apache.spark.{SparkConf, SparkContext}
   * Created by federicopanini on 06/06/16.
   */
 class Count {
+  /**
+    *
+    * @param sc
+    */
   def testCount(sc: SparkContext): Unit = {
     val elements = sc.parallelize(List(1,2,3,3));
 

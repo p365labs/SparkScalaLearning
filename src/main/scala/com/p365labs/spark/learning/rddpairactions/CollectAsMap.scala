@@ -21,6 +21,6 @@ class CollectAsMap {
     println("************************ PAIR RDD ACTIONS COLLECTASMAP");
     println("Actions : elements is List((1,2),(3,4),(3,6))");
     println("Actions : elements.collectAsMap()");
-    for (res <- result) println("Actions : .collectAsMap() = ");
+    for (res <- result) println("Actions : .collectAsMap() = " + res);
   }
 }

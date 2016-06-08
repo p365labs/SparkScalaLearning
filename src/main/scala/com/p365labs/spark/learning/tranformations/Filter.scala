@@ -15,10 +15,12 @@ class Filter {
   def filterErrorLog(sc: SparkContext, inputFile: RDD[String], outputFile: String): Unit = {
     val errorRRD = inputFile.filter(line => line.contains("HTTP/1.1\" 500"));
 
-
+    println("");
+    println("************************ TRANSFORMATION FILTER");
     println("Total line numbers : " + inputFile.count());
     println("HTTP 500 error lines: " + errorRRD.count());
-
+    println("Actions : values.filter(line => line.contains(\"HTTP/1.1\\\" 500\")");
+    for (res <- errorRRD.takeSample(false, 3)) println("Actions : .top(3) = " + res);
     errorRRD.saveAsTextFile(outputFile);
   }
 

@@ -15,13 +15,19 @@ class Intersection {
       * Redbull
       * coca cola
       */
-    val3.collect().foreach(println);
+    println("");
+    println("************************ TRANSFORMATION FILTER");
+    println("Actions : val1.intersection(val2)");
+    for (res <- val3) println("Actions : .intersection(val2) = " + res);
 
     val val4 = val2.intersection(val1);
     /**
       * Redbull
       * coca cola
       */
-    val4.collect().foreach(println);
+    println("");
+    println("************************ TRANSFORMATION FILTER");
+    println("Actions : val2.intersection(val1)");
+    for (res <- val4) println("Actions : .intersection(val1) = " + res);
   }
 }

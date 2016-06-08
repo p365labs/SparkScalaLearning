@@ -19,6 +19,7 @@ class FlatMap extends Serializable {
 
   /**
     * this example show the difference between .map() and .flatMap()
+    *
     * @param sc
     */
   def testFlatMap2(sc: SparkContext): Unit = {
@@ -52,7 +53,12 @@ class FlatMap extends Serializable {
       * ]
       *
       */
-    word_map.collect().foreach(println);
+    println("");
+    println("************************ TRANSFORMATION FLATMAP");
+    println("Actions : values.map(x => x.split(\" \"))");
+
+    var i = 0;
+    word_map.collect().foreach ((x: Array[String]) => println(x.mkString("[", ",", "]")));
 
 
     /**
@@ -70,8 +76,9 @@ class FlatMap extends Serializable {
       *   7 : "town"
       * ]
       */
-    word_flat_map.collect().foreach(print);
-
-
+    println("");
+    println("************************ TRANSFORMATION FLATMAP");
+    println("Actions : values.flatMap(x => x.split(\" \"))");
+    println(word_flat_map.collect().mkString("[", ",", "]"));
   }
 }
